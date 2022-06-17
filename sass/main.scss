@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$colors: (
+  primary: #2c2c2c,
+  secondary: #122dff,
+  third: #e6f3fd,
+);
+
+$borders: 1rem;
+$padding: 0.5rem;
+$fontSize: 1rem;
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: color(third);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  #bg {
+    background-color: color(secondary);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    clip-path: polygon(0 0, 95% 0, 35% 100%, 0% 100%);
+  }
+
+  .card-container {
+    width: 70%;
+    height: 100%;
+    overflow-y: scroll;
+    // background-color: color(third);
+
+    .card {
+      background-color: color(primary);
+      height: 300px;
+      border-radius: $borders;
+      padding: $padding * 2;
+      color: color(third);
+      cursor: pointer;
+      position: relative;
+      transition: all 300ms ease-in;
+      
+      h1 {
+        text-transform: uppercase;
+      }
+      
+      p {
+        font-size: $fontSize;
+        line-height: 1.2em;
+      }
+      
+      &:not(:first-child) {
+        margin-top: -5rem;
+        box-shadow: 0 -1rem 1rem #000;
+      }
+
+      &:not(:first-child) {
+        &:not(:last-child) {
+          &:hover {
+            transform: translateY(-1rem);
+          }
+        }
+      }
+
+      &:hover ~ .card {
+        transform: translateY(2rem);
+      }
+    }
+  }
+}
