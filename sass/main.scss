@@ -46,16 +46,16 @@ body {
       cursor: pointer;
       position: relative;
       transition: all 300ms ease-in;
-      
+
       h1 {
         text-transform: uppercase;
       }
-      
+
       p {
         font-size: $fontSize;
         line-height: 1.2em;
       }
-      
+
       &:not(:first-child) {
         margin-top: -5rem;
         box-shadow: 0 -1rem 1rem #000;
